@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5q0j8emen618"]
+
+[ext_resource type="PackedScene" uid="uid://t5fd6qvdxatb" path="res://levels/mid_scene.tscn" id="1_itrcv"]
+[ext_resource type="PackedScene" uid="uid://cwkqggwwy3n26" path="res://levels/right_scene.tscn" id="2_k5jml"]
+[ext_resource type="PackedScene" uid="uid://dibr48ub85rdi" path="res://levels/left_scene.tscn" id="3_8ecwj"]
+[ext_resource type="Script" path="res://levels/camera.gd" id="4_sv41r"]
+[ext_resource type="PackedScene" uid="uid://b1nvqp1opf5ha" path="res://levels/ui.tscn" id="5_arux8"]
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="MidScene" parent="." instance=ExtResource("1_itrcv")]
+position = Vector2(-1, -9)
+
+[node name="RightScene" parent="." instance=ExtResource("2_k5jml")]
+position = Vector2(1200, 0)
+
+[node name="LeftScene" parent="." instance=ExtResource("3_8ecwj")]
+position = Vector2(-1200, 0)
+
+[node name="UI" parent="." instance=ExtResource("5_arux8")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_sv41r")

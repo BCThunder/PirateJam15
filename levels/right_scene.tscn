@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwkqggwwy3n26"]
+
+[ext_resource type="Texture2D" uid="uid://tfglrt0axh1v" path="res://assets/sprites/environments/cabin.png" id="1_x1k83"]
+
+[node name="RightScene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_x1k83")
