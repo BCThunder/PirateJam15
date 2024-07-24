@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://0sulru6f1uuo"]
+
+[ext_resource type="Script" path="res://entities/dragon_egg.gd" id="1_7h1x1"]
+[ext_resource type="Texture2D" uid="uid://ckppbvd3xtg77" path="res://assets/sprites/objects/dragon_egg.png" id="2_bsp7h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hb37n"]
+radius = 55.0
+height = 160.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h82xq"]
+radius = 55.0
+height = 160.0
+
+[node name="DragonEgg" type="CharacterBody2D" groups=["ingredients"]]
+visibility_layer = 2
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_7h1x1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4.92, 4.92)
+texture = ExtResource("2_bsp7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hb37n")
+debug_color = Color(0.898039, 0.313726, 0.00392157, 0.419608)
+
+[node name="SelectableArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableArea2D"]
+position = Vector2(0, -2.38419e-07)
+shape = SubResource("CapsuleShape2D_h82xq")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="mouse_entered" from="SelectableArea2D" to="." method="_on_selectable_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="SelectableArea2D" to="." method="_on_selectable_area_2d_mouse_exited"]

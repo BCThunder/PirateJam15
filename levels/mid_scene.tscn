@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://t5fd6qvdxatb"]
+[gd_scene load_steps=10 format=3 uid="uid://t5fd6qvdxatb"]
 
+[ext_resource type="PackedScene" uid="uid://d3pbsjqj6rxt0" path="res://entities/eyeball.tscn" id="2_2wtxc"]
 [ext_resource type="Texture2D" uid="uid://ckf3nepcota5l" path="res://assets/sprites/environments/plains.png" id="2_b6xki"]
-[ext_resource type="PackedScene" uid="uid://d3pbsjqj6rxt0" path="res://entities/ingredient.tscn" id="3_hjlfr"]
+[ext_resource type="PackedScene" uid="uid://0sulru6f1uuo" path="res://entities/dragon_egg.tscn" id="3_7mhew"]
+[ext_resource type="PackedScene" uid="uid://bll3koaa3siua" path="res://entities/bat_wing.tscn" id="4_8qf5j"]
 [ext_resource type="PackedScene" uid="uid://cqs6yy15aooi1" path="res://entities/cauldron.tscn" id="4_n3ukc"]
 [ext_resource type="Texture2D" uid="uid://i4x887n28h6r" path="res://assets/sprites/objects/cauldron_bottom.png" id="5_pxin4"]
+[ext_resource type="PackedScene" uid="uid://dwfawsu7c63rw" path="res://entities/mushroom.tscn" id="5_xns8q"]
 [ext_resource type="Texture2D" uid="uid://1ylkljxrd48t" path="res://icon.svg" id="6_amu21"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lq1b"]
@@ -19,23 +22,26 @@ texture = ExtResource("2_b6xki")
 
 [node name="Ingredients" type="Node" parent="."]
 
-[node name="Ingredient" parent="Ingredients" instance=ExtResource("3_hjlfr")]
+[node name="Eyeball" parent="Ingredients" instance=ExtResource("2_2wtxc")]
 z_index = 1
 position = Vector2(-488, 130)
 floor_stop_on_slope = false
 GRAVITY = 600
 
-[node name="Ingredient2" parent="Ingredients" instance=ExtResource("3_hjlfr")]
+[node name="DragonEgg" parent="Ingredients" instance=ExtResource("3_7mhew")]
 z_index = 1
-position = Vector2(-286, 143)
-floor_stop_on_slope = false
+position = Vector2(314, 157)
+GRAVITY = 750
+
+[node name="BatWing" parent="Ingredients" instance=ExtResource("4_8qf5j")]
+z_index = 1
+position = Vector2(476, 81)
 GRAVITY = 600
 
-[node name="Ingredient3" parent="Ingredients" instance=ExtResource("3_hjlfr")]
+[node name="Mushroom" parent="Ingredients" instance=ExtResource("5_xns8q")]
 z_index = 1
-position = Vector2(403, 112)
-floor_stop_on_slope = false
-GRAVITY = 600
+position = Vector2(-333, 190)
+GRAVITY = 650
 
 [node name="CauldronParts" type="Node" parent="."]
 

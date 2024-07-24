@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var GRAVITY : int = 1
+@export var base_scale : float = 0.4
+@export var enlarged_scale : float = 0.5
 
 var draggable : bool = false
 var offset : Vector2
@@ -32,10 +34,10 @@ func _physics_process(delta):
 func _on_selectable_area_2d_mouse_entered():
 	if not GameManager.is_dragging:
 		draggable = true
-		scale = Vector2(0.5, 0.5)
+		scale = Vector2(enlarged_scale, enlarged_scale)
 
 
 func _on_selectable_area_2d_mouse_exited():
 	if not GameManager.is_dragging:
 		draggable = false
-		scale = Vector2(0.4, 0.4)
+		scale = Vector2(base_scale, base_scale)

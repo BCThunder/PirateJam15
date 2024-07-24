@@ -11,6 +11,8 @@ var left_arrow_selected : bool = false
 var right_arrow_selected : bool = false
 var up_arrow_selected : bool = false
 
+@onready var animation_player = $CanvasLayer/AnimationPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -34,7 +36,8 @@ func _process(delta):
 		elif right_arrow_selected:
 			GameManager.scene_position += 1
 		elif up_arrow_selected:
-			print("Up arrow selected.")
+			GameManager.show_check_list = true
+			print("Display page")
 
 
 func _on_left_arrow_mouse_entered():

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5q0j8emen618"]
+[gd_scene load_steps=7 format=3 uid="uid://c5q0j8emen618"]
 
 [ext_resource type="PackedScene" uid="uid://t5fd6qvdxatb" path="res://levels/mid_scene.tscn" id="1_itrcv"]
 [ext_resource type="PackedScene" uid="uid://cwkqggwwy3n26" path="res://levels/right_scene.tscn" id="2_k5jml"]
 [ext_resource type="PackedScene" uid="uid://dibr48ub85rdi" path="res://levels/left_scene.tscn" id="3_8ecwj"]
 [ext_resource type="Script" path="res://levels/camera.gd" id="4_sv41r"]
+[ext_resource type="PackedScene" uid="uid://cs0hp2mn51nr2" path="res://levels/check_list.tscn" id="5_003mi"]
 [ext_resource type="PackedScene" uid="uid://b1nvqp1opf5ha" path="res://levels/ui.tscn" id="5_arux8"]
 
 [node name="MainLevel" type="Node2D"]
@@ -16,6 +17,8 @@ position = Vector2(1200, 0)
 
 [node name="LeftScene" parent="." instance=ExtResource("3_8ecwj")]
 position = Vector2(-1200, 0)
+
+[node name="CheckList" parent="." instance=ExtResource("5_003mi")]
 
 [node name="UI" parent="." instance=ExtResource("5_arux8")]
 

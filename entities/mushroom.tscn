@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwfawsu7c63rw"]
+
+[ext_resource type="Script" path="res://entities/mushroom.gd" id="1_p0tk2"]
+[ext_resource type="Texture2D" uid="uid://nrhvvyrvsom3" path="res://assets/sprites/objects/mushroom.png" id="2_f0hl2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8bl5"]
+radius = 80.039
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t8nd2"]
+radius = 80.0004
+
+[node name="Mushroom" type="CharacterBody2D" groups=["ingredients"]]
+visibility_layer = 2
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_p0tk2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(4.92, 4.92)
+texture = ExtResource("2_f0hl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.84217e-14)
+shape = SubResource("CircleShape2D_y8bl5")
+debug_color = Color(0.898039, 0.313726, 0.00392157, 0.419608)
+
+[node name="SelectableArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableArea2D"]
+position = Vector2(0, -0.25)
+shape = SubResource("CircleShape2D_t8nd2")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="mouse_entered" from="SelectableArea2D" to="." method="_on_selectable_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="SelectableArea2D" to="." method="_on_selectable_area_2d_mouse_exited"]
