@@ -8,3 +8,6 @@ var scene_position : int = 1
 
 # Handle Check List
 var show_check_list : bool = false
+
+# Handle Potion Making
+var was_potion_made : bool = false

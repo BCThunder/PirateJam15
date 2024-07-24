@@ -10,10 +10,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if num_ingredients == 4:
-		if CheckList.check_list.has_all(ingredients_in_cauldron):
-			print("Potion Made!")
-			num_ingredients = 0
+	if num_ingredients == 3:
+		for potion in CheckListManager.check_list:
+			if CheckListManager.check_list[potion].has_all(ingredients_in_cauldron):
+				print("Potion Made!")
+				CheckListManager.is_potion_made[CheckListManager.check_list_counter] = true
+				num_ingredients = 0
+				ingredients_in_cauldron.clear()
+				GameManager.was_potion_made = true
+				print(CheckListManager.is_potion_made)
+				break
+				
+			CheckListManager.check_list_counter += 1
+		
+		CheckListManager.check_list_counter = 0
 
 
 func _on_area_2d_body_entered(body):

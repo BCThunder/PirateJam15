@@ -23,12 +23,15 @@ func _process(delta):
 	if GameManager.scene_position == 0:
 		left_arrow.visible = false
 		right_arrow.visible = true
+		up_arrow.visible = false
 	if GameManager.scene_position == 1:
 		left_arrow.visible = true
 		right_arrow.visible = true
+		up_arrow.visible = true
 	if GameManager.scene_position == 2:
 		left_arrow.visible = true
 		right_arrow.visible = false
+		up_arrow.visible = false
 	
 	if Input.is_action_just_pressed("select"):
 		if left_arrow_selected:
@@ -37,7 +40,6 @@ func _process(delta):
 			GameManager.scene_position += 1
 		elif up_arrow_selected:
 			GameManager.show_check_list = true
-			print("Display page")
 
 
 func _on_left_arrow_mouse_entered():

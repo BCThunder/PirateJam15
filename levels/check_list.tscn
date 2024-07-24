@@ -64,7 +64,56 @@ position = Vector2(0, 1152)
 scale = Vector2(34, 22)
 texture = ExtResource("2_3mvj6")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="PaperSprite"]
+custom_minimum_size = Vector2(149, 149)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.8824
+offset_top = -14.3636
+offset_right = 102.118
+offset_bottom = 318.636
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="TitleLabel" type="Label" parent="PaperSprite/VBoxContainer"]
+custom_minimum_size = Vector2(149, 16)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_po3c5")
+theme_override_font_sizes/font_size = 16
+text = "Potion List:"
+autowrap_mode = 1
+
+[node name="Potion1Label" type="Label" parent="PaperSprite/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(149, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_po3c5")
+theme_override_font_sizes/font_size = 16
+text = "-Poison: wing, mushroom, dragon egg"
+autowrap_mode = 1
+
+[node name="Potion2Label" type="Label" parent="PaperSprite/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(149, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_po3c5")
+theme_override_font_sizes/font_size = 16
+text = "-Healing: eye, mushroom, dragon egg"
+autowrap_mode = 1
+
+[node name="Potion3Label" type="Label" parent="PaperSprite/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(149, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_po3c5")
+theme_override_font_sizes/font_size = 16
+text = "-Heat: dragon egg, eye, wing"
+autowrap_mode = 1
+
 [node name="PotionListLabel" type="Label" parent="PaperSprite"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

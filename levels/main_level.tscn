@@ -25,3 +25,5 @@ position = Vector2(-1200, 0)
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_speed = 20.0
 script = ExtResource("4_sv41r")
+
+[connection signal="SpawnIngredients" from="CheckList" to="MidScene" method="_on_check_list_spawn_ingredients"]

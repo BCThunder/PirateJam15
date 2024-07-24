@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3pbsjqj6rxt0"]
 
-[ext_resource type="Script" path="res://entities/eyeball.gd" id="1_y64dl"]
+[ext_resource type="Script" path="res://entities/ingredients.gd" id="1_rj55w"]
 [ext_resource type="Texture2D" uid="uid://bo2h1u63bwv4e" path="res://assets/sprites/objects/eyeball.png" id="2_xntu8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3tfnh"]
@@ -12,8 +12,8 @@ radius = 83.6305
 [node name="Eyeball" type="CharacterBody2D" groups=["ingredients"]]
 visibility_layer = 2
 scale = Vector2(0.4, 0.4)
-script = ExtResource("1_y64dl")
-GRAVITY = 30
+script = ExtResource("1_rj55w")
+GRAVITY = 600
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4.92, 4.92)
