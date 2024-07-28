@@ -14,6 +14,8 @@ signal SpawnIngredients
 @warning_ignore("unused_parameter")
 func _process(delta):
 	if GameManager.was_potion_made:
+		GameManager.was_potion_made = false
+		
 		if CheckListManager.is_potion_made[0]:
 			potion_1_label.modulate.a = 0.2
 		if CheckListManager.is_potion_made[1]:
@@ -22,7 +24,10 @@ func _process(delta):
 			potion_3_label.modulate.a = 0.2
 		
 		SpawnIngredients.emit()
-		GameManager.was_potion_made = false
+		
+	elif GameManager.was_potion_wrong:
+		SpawnIngredients.emit()
+		GameManager.was_potion_wrong = false
 	
 	if GameManager.show_check_list and !has_played_animation:
 		animation_player.play("display_page")

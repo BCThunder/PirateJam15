@@ -11,3 +11,4 @@ var show_check_list : bool = false
 
 # Handle Potion Making
 var was_potion_made : bool = false
+var was_potion_wrong : bool = false

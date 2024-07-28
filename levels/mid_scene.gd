@@ -1,14 +1,24 @@
 extends Node2D
 
 @onready var eyeball_marker = $IngredientSpawnPoints/EyeballMarker
-@onready var mushroom_marker = $IngredientSpawnPoints/MushroomMarker
 @onready var dragon_egg_marker = $IngredientSpawnPoints/DragonEggMarker
 @onready var bat_wing_marker = $IngredientSpawnPoints/BatWingMarker
+@onready var mushroom_marker = $IngredientSpawnPoints/MushroomMarker
+@onready var animation_player = $AnimationPlayer
 
 var eyeball = preload("res://entities/eyeball.tscn")
 var dragon_egg = preload("res://entities/dragon_egg.tscn")
 var bat_wing = preload("res://entities/bat_wing.tscn")
 var mushroom = preload("res://entities/mushroom.tscn")
+
+var ingr_marker_index : int = 0
+var ingredients : Array = []
+var markers : Array = []
+
+
+func _ready():
+	ingredients = [eyeball, dragon_egg, bat_wing, mushroom]
+	markers = [eyeball_marker, dragon_egg_marker, bat_wing_marker, mushroom_marker]
 
 
 func clear_ingredients():
@@ -17,30 +27,22 @@ func clear_ingredients():
 
 
 func spawn_ingredients():
-	var eyeball_instance = eyeball.instantiate() as CharacterBody2D
-	eyeball_instance.global_position = eyeball_marker.global_position
-	eyeball_instance.add_to_group("ingredients")
-	eyeball_instance.z_index += 1
+	animation_player.play("summon_ingredients")
 	
-	var dragon_egg_instance = dragon_egg.instantiate() as CharacterBody2D
-	dragon_egg_instance.global_position = dragon_egg_marker.global_position
-	dragon_egg_instance.add_to_group("ingredients")
-	dragon_egg_instance.z_index += 1
+	await get_tree().create_timer(1).timeout
 	
-	var bat_wing_instance = bat_wing.instantiate() as CharacterBody2D
-	bat_wing_instance.global_position = bat_wing_marker.global_position
-	bat_wing_instance.add_to_group("ingredients")
-	bat_wing_instance.z_index += 1
+	for ingredient in ingredients:
+		var ingr_instance = ingredient.instantiate() as CharacterBody2D
+		ingr_instance.global_position = markers[ingr_marker_index % 4].global_position
+		ingr_instance.add_to_group("ingredients")
+		ingr_instance.z_index += 1
+		
+		ingr_marker_index += 1
+		get_node("Ingredients").add_child(ingr_instance)
+		
+	await get_tree().create_timer(1).timeout
 	
-	var mushroom_instance = mushroom.instantiate() as CharacterBody2D
-	mushroom_instance.global_position = mushroom_marker.global_position
-	mushroom_instance.add_to_group("ingredients")
-	mushroom_instance.z_index += 1
-	
-	get_node("Ingredients").add_child(eyeball_instance)
-	get_node("Ingredients").add_child(dragon_egg_instance)
-	get_node("Ingredients").add_child(bat_wing_instance)
-	get_node("Ingredients").add_child(mushroom_instance)
+	animation_player.play("finish_summon")
 
 
 func _on_check_list_spawn_ingredients():

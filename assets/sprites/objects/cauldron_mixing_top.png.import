@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwouxd2pgk8yj"
-path="res://.godot/imported/cauldron_bottom.png-ae39058c4ead7ec00108c2e156166229.ctex"
+uid="uid://dbb8rmoxcji6i"
+path="res://.godot/imported/cauldron_mixing_top.png-7900342a28541bd1f139e6025d29055c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/cauldron_bottom.png"
-dest_files=["res://.godot/imported/cauldron_bottom.png-ae39058c4ead7ec00108c2e156166229.ctex"]
+source_file="res://assets/sprites/objects/cauldron_mixing_top.png"
+dest_files=["res://.godot/imported/cauldron_mixing_top.png-7900342a28541bd1f139e6025d29055c.ctex"]
 
 [params]
 

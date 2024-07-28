@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwouxd2pgk8yj"
-path="res://.godot/imported/cauldron_bottom.png-ae39058c4ead7ec00108c2e156166229.ctex"
+uid="uid://co8xmjyqvwl1u"
+path="res://.godot/imported/hill_landscape.png-bc43c18b39664d90402559d558886481.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/objects/cauldron_bottom.png"
-dest_files=["res://.godot/imported/cauldron_bottom.png-ae39058c4ead7ec00108c2e156166229.ctex"]
+source_file="res://assets/sprites/environments/hill_landscape.png"
+dest_files=["res://.godot/imported/hill_landscape.png-bc43c18b39664d90402559d558886481.ctex"]
 
 [params]
 
