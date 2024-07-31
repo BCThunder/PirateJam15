@@ -35,6 +35,7 @@ func check_potions():
 			ingredients_in_cauldron.clear()
 			GameManager.was_potion_made = true
 			print(CheckListManager.is_potion_made)
+			break
 			
 		elif CheckListManager.check_list_counter >= 2:
 			# example wrong potion: eye, mushroom, wing

@@ -6,6 +6,7 @@ extends Node2D
 @onready var potion_3_label = $PaperSprite/VBoxContainer/Potion3Label
 
 var has_played_animation : bool = false
+var total_potions_made : int = 0
 
 signal SpawnIngredients
 
@@ -17,11 +18,16 @@ func _process(delta):
 		GameManager.was_potion_made = false
 		
 		if CheckListManager.is_potion_made[0]:
-			potion_1_label.modulate.a = 0.2
+			potion_1_label.self_modulate.a = 0.2
 		if CheckListManager.is_potion_made[1]:
-			potion_2_label.modulate.a = 0.2
+			potion_2_label.self_modulate.a = 0.2
 		if CheckListManager.is_potion_made[2]:
-			potion_3_label.modulate.a = 0.2
+			potion_3_label.self_modulate.a = 0.2
+		
+		total_potions_made += 1
+		
+		if total_potions_made == 3:
+			GameManager.switch_screens(GameManager.victory_screen)
 		
 		SpawnIngredients.emit()
 		

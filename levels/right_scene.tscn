@@ -2,41 +2,54 @@
 
 [ext_resource type="Script" path="res://levels/enemy.gd" id="1_a2lld"]
 [ext_resource type="Texture2D" uid="uid://co8xmjyqvwl1u" path="res://assets/sprites/environments/hill_landscape.png" id="1_dth3b"]
-[ext_resource type="Texture2D" uid="uid://0ob5a0vq5tj8" path="res://assets/sprites/entities/scream.png" id="2_ygujn"]
+[ext_resource type="Texture2D" uid="uid://s3aucn8xyxyl" path="res://assets/sprites/entities/thing.png" id="3_05uwt"]
 [ext_resource type="Texture2D" uid="uid://c2ybduq5xqgi6" path="res://assets/sprites/entities/watching.png" id="4_sm8a5"]
 
-[node name="RightScene" type="Node2D" node_paths=PackedStringArray("event_timer", "level_buffer_timer", "enemy_sprite_foreground", "enemy_sprite_midground")]
+[node name="RightScene" type="Node2D" node_paths=PackedStringArray("event_timer", "level_buffer_timer", "kill_timer", "flashlight_timer", "background_sprite", "enemy_sprite_foreground", "enemy_sprite_midground")]
 script = ExtResource("1_a2lld")
 event_timer = NodePath("EventTimer")
 level_buffer_timer = NodePath("LevelBufferTimer")
-enemy_sprite_foreground = NodePath("DontScream")
+kill_timer = NodePath("KillTimer")
+flashlight_timer = NodePath("FlashlightTimer")
+background_sprite = NodePath("Background")
+enemy_sprite_foreground = NodePath("TheThing")
 enemy_sprite_midground = NodePath("Watching")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("1_dth3b")
 
-[node name="DontScream" type="Sprite2D" parent="."]
+[node name="TheThing" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(86, 2.58494e-26)
-scale = Vector2(2.99662, 2.99662)
-texture = ExtResource("2_ygujn")
+position = Vector2(600, 36)
+scale = Vector2(1.83176, 1.83176)
+texture = ExtResource("3_05uwt")
 
 [node name="Watching" type="Sprite2D" parent="."]
 visible = false
-self_modulate = Color(0.717647, 0.717647, 0.717647, 1)
-position = Vector2(440, 0)
+self_modulate = Color(0.717647, 0.717647, 0.717647, 0.105882)
+position = Vector2(569, 14)
 rotation = 3.14159
-scale = Vector2(0.160174, 0.350418)
+scale = Vector2(0.207611, 0.207611)
 texture = ExtResource("4_sm8a5")
 
 [node name="EventTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 
 [node name="LevelBufferTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="FlashlightTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
 [connection signal="timeout" from="LevelBufferTimer" to="." method="_on_level_buffer_timer_timeout"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]
+[connection signal="timeout" from="FlashlightTimer" to="." method="_on_flashlight_timer_timeout"]

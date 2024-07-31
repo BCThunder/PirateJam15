@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj64vjwimwv7d"]
+
+[ext_resource type="Texture2D" uid="uid://tfglrt0axh1v" path="res://assets/sprites/environments/cabin.png" id="1_4h2i1"]
+[ext_resource type="Theme" uid="uid://bdb5gdodryaj0" path="res://ui/game_theme.tres" id="1_ohafl"]
+[ext_resource type="Script" path="res://ui/start_menu.gd" id="1_qykk6"]
+[ext_resource type="FontFile" uid="uid://vby385k06ed4" path="res://assets/sprites/ui/monogram.ttf" id="3_66bxc"]
+
+[node name="StartMenu" type="CanvasLayer"]
+script = ExtResource("1_qykk6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4h2i1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -35.5
+offset_right = 28.0
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer0" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_66bxc")
+theme_override_font_sizes/font_size = 128
+text = "Midnight Brew"
+horizontal_alignment = 1
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="MarginContainer/VBoxContainer0"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer0/VBoxContainer1"]
+layout_mode = 2
+theme = ExtResource("1_ohafl")
+text = "Play"
+
+[node name="TutorialButton" type="Button" parent="MarginContainer/VBoxContainer0/VBoxContainer1"]
+layout_mode = 2
+theme = ExtResource("1_ohafl")
+text = "Tutorial"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer0/VBoxContainer1"]
+layout_mode = 2
+theme = ExtResource("1_ohafl")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer0/VBoxContainer1/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer0/VBoxContainer1/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer0/VBoxContainer1/QuitButton" to="." method="_on_quit_button_pressed"]

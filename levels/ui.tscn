@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1nvqp1opf5ha"]
+[gd_scene load_steps=6 format=3 uid="uid://b1nvqp1opf5ha"]
 
 [ext_resource type="Script" path="res://levels/ui.gd" id="1_a72rh"]
 [ext_resource type="Texture2D" uid="uid://bj628el102j0m" path="res://assets/sprites/ui/arrow.png" id="1_xdp0d"]
+[ext_resource type="FontFile" uid="uid://vby385k06ed4" path="res://assets/sprites/ui/monogram.ttf" id="2_pncep"]
+[ext_resource type="Texture2D" uid="uid://bopbknd7mcnrp" path="res://assets/sprites/ui/flashlight.png" id="4_tilj3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4n70r"]
+radius = 56.2939
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_a72rh")
@@ -18,6 +23,19 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+
+[node name="PauseButtonHBox" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PauseButton" type="Button" parent="MarginContainer/PauseButtonHBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pncep")
+theme_override_font_sizes/font_size = 64
+text = "||"
 
 [node name="ArrowScrollHBox" type="HBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(128, 128)
@@ -74,9 +92,22 @@ texture = ExtResource("1_xdp0d")
 position = Vector2(-64, 65)
 polygon = PackedVector2Array(62, -125, 108, -74, 84, -76, 94, -7, 62, -11, 35, -8, 47, -77, 23, -73)
 
+[node name="Flashlight" type="Area2D" parent="MarginContainer/SummonHBox"]
+position = Vector2(62, 64)
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/SummonHBox/Flashlight"]
+texture = ExtResource("4_tilj3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/SummonHBox/Flashlight"]
+scale = Vector2(2.2, 1)
+shape = SubResource("CircleShape2D_4n70r")
+
+[connection signal="pressed" from="MarginContainer/PauseButtonHBox/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/ArrowScrollHBox/HBoxContainer/LeftArrow" to="." method="_on_left_arrow_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/ArrowScrollHBox/HBoxContainer/LeftArrow" to="." method="_on_left_arrow_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainer/ArrowScrollHBox/HBoxContainer2/RightArrow" to="." method="_on_right_arrow_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/ArrowScrollHBox/HBoxContainer2/RightArrow" to="." method="_on_right_arrow_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainer/SummonHBox/UpArrow" to="." method="_on_up_arrow_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/SummonHBox/UpArrow" to="." method="_on_up_arrow_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/SummonHBox/Flashlight" to="." method="_on_flashlight_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/SummonHBox/Flashlight" to="." method="_on_flashlight_mouse_exited"]

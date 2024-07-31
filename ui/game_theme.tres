@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bdb5gdodryaj0"]
+
+[ext_resource type="FontFile" uid="uid://vby385k06ed4" path="res://assets/sprites/ui/monogram.ttf" id="1_631tp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2wkm"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[resource]
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("1_631tp")
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_a2wkm")
+Button/styles/pressed = null

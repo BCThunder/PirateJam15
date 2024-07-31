@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5q0j8emen618"]
+[gd_scene load_steps=8 format=3 uid="uid://c5q0j8emen618"]
 
 [ext_resource type="PackedScene" uid="uid://t5fd6qvdxatb" path="res://levels/mid_scene.tscn" id="1_itrcv"]
 [ext_resource type="PackedScene" uid="uid://cwkqggwwy3n26" path="res://levels/right_scene.tscn" id="2_k5jml"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://levels/camera.gd" id="4_sv41r"]
 [ext_resource type="PackedScene" uid="uid://cs0hp2mn51nr2" path="res://levels/check_list.tscn" id="5_003mi"]
 [ext_resource type="PackedScene" uid="uid://b1nvqp1opf5ha" path="res://levels/ui.tscn" id="5_arux8"]
+[ext_resource type="AudioStream" uid="uid://dh8prabe7fvv4" path="res://assets/audio/background_ambience.mp3" id="7_fubjt"]
 
 [node name="MainLevel" type="Node2D"]
 
@@ -26,4 +27,11 @@ position = Vector2(-1200, 0)
 position_smoothing_speed = 20.0
 script = ExtResource("4_sv41r")
 
+[node name="BackgroundAmbience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_fubjt")
+autoplay = true
+bus = &"Ambience"
+
 [connection signal="SpawnIngredients" from="CheckList" to="MidScene" method="_on_check_list_spawn_ingredients"]
+[connection signal="shine_flashlight" from="UI" to="RightScene" method="_on_ui_shine_flashlight"]
+[connection signal="shine_flashlight" from="UI" to="LeftScene" method="_on_ui_shine_flashlight"]

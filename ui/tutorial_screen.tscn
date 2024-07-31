@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtlrapqbrcba7"]
+
+[ext_resource type="Texture2D" uid="uid://dkk1ld54yt1o2" path="res://assets/sprites/ui/paper.png" id="1_b22vb"]
+[ext_resource type="Script" path="res://ui/tutorial_screen.gd" id="1_x6i01"]
+[ext_resource type="Theme" uid="uid://bdb5gdodryaj0" path="res://ui/game_theme.tres" id="2_mag15"]
+[ext_resource type="Texture2D" uid="uid://cpea7hvgdv1s" path="res://assets/sprites/objects/cauldron.png" id="3_44jpv"]
+[ext_resource type="Texture2D" uid="uid://c2ybduq5xqgi6" path="res://assets/sprites/entities/watching.png" id="4_4ecsl"]
+[ext_resource type="Texture2D" uid="uid://bo2h1u63bwv4e" path="res://assets/sprites/objects/eyeball.png" id="4_jlsuu"]
+[ext_resource type="FontFile" uid="uid://vby385k06ed4" path="res://assets/sprites/ui/monogram.ttf" id="5_k0sk3"]
+[ext_resource type="Texture2D" uid="uid://bj628el102j0m" path="res://assets/sprites/ui/arrow.png" id="7_j33xc"]
+[ext_resource type="Texture2D" uid="uid://bopbknd7mcnrp" path="res://assets/sprites/ui/flashlight.png" id="9_3n827"]
+
+[node name="TutorialScreen" type="CanvasLayer"]
+script = ExtResource("1_x6i01")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.0784314, 0.0784314, 0.0784314, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_b22vb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="BackButton" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme = ExtResource("2_mag15")
+text = "X"
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Watching" type="Sprite2D" parent="Node"]
+position = Vector2(1144, 776)
+rotation = 3.14159
+scale = Vector2(0.219992, 0.219992)
+texture = ExtResource("4_4ecsl")
+
+[node name="Cauldron" type="Sprite2D" parent="Node"]
+position = Vector2(885.966, 285.966)
+rotation = -0.523599
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_44jpv")
+
+[node name="Eyeball" type="Sprite2D" parent="Node"]
+position = Vector2(847.966, 222.966)
+rotation = -0.523599
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_jlsuu")
+
+[node name="Paper" type="Sprite2D" parent="Node"]
+position = Vector2(303, 273)
+scale = Vector2(10.7703, -3.6667)
+texture = ExtResource("1_b22vb")
+
+[node name="Arrow" type="Sprite2D" parent="Node"]
+position = Vector2(305, 354)
+rotation = -1.57079
+scale = Vector2(0.409712, 0.409712)
+texture = ExtResource("7_j33xc")
+
+[node name="Arrow2" type="Sprite2D" parent="Node"]
+self_modulate = Color(1, 0.193308, 0.363568, 1)
+position = Vector2(584, 296)
+scale = Vector2(1.10633, 1.10633)
+texture = ExtResource("7_j33xc")
+
+[node name="Flashlight" type="Sprite2D" parent="Node"]
+position = Vector2(560, 560)
+texture = ExtResource("9_3n827")
+
+[node name="Label" type="Label" parent="Node"]
+offset_left = 696.0
+offset_top = 386.0
+offset_right = 1080.0
+offset_bottom = 412.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("5_k0sk3")
+theme_override_font_sizes/font_size = 32
+text = "Drag ingredients into the cauldron
+to make a potion"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Node"]
+offset_left = 112.0
+offset_top = 386.0
+offset_right = 496.0
+offset_bottom = 412.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("5_k0sk3")
+theme_override_font_sizes/font_size = 32
+text = "Check your list for potions
+(Right Click to hide list)"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Node"]
+offset_left = 368.0
+offset_top = 648.0
+offset_right = 752.0
+offset_bottom = 674.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("5_k0sk3")
+theme_override_font_sizes/font_size = 32
+text = "Shine Flashlight to 
+defend yourself"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Node"]
+offset_left = 143.0
+offset_top = 233.0
+offset_right = 563.0
+offset_bottom = 259.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("5_k0sk3")
+theme_override_font_sizes/font_size = 32
+text = "-Poison: wing, mushroom, 
+dragon egg"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

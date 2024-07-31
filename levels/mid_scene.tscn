@@ -13,22 +13,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lq1b"]
 size = Vector2(1188, 129)
 
-[sub_resource type="Animation" id="Animation_mc0wn"]
-resource_name = "summon_ingredients"
-length = 0.5
-step = 1.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Ingredients/Pentagram:self_modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-
 [sub_resource type="Animation" id="Animation_jq5tj"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -69,6 +53,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mc0wn"]
+resource_name = "summon_ingredients"
+length = 0.5
+step = 1.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ingredients/Pentagram:self_modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4vhbj"]

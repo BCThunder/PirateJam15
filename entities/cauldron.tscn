@@ -105,7 +105,6 @@ scale = Vector2(5, 5)
 script = ExtResource("1_b3e83")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1, 1)
 texture = ExtResource("1_0johq")
 
 [node name="CauldronAnimatedSprite" type="AnimatedSprite2D" parent="."]

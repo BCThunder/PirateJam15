@@ -5,10 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://c7p6e65ewryta" path="res://assets/sprites/entities/whisperer.png" id="2_6akyl"]
 [ext_resource type="Texture2D" uid="uid://c2ybduq5xqgi6" path="res://assets/sprites/entities/watching.png" id="4_quc62"]
 
-[node name="LeftScene" type="Node2D" node_paths=PackedStringArray("event_timer", "level_buffer_timer", "enemy_sprite_foreground", "enemy_sprite_midground")]
+[node name="LeftScene" type="Node2D" node_paths=PackedStringArray("event_timer", "level_buffer_timer", "kill_timer", "flashlight_timer", "background_sprite", "enemy_sprite_foreground", "enemy_sprite_midground")]
 script = ExtResource("1_q7r8r")
 event_timer = NodePath("EventTimer")
 level_buffer_timer = NodePath("LevelBufferTimer")
+kill_timer = NodePath("KillTimer")
+flashlight_timer = NodePath("FlashlightTimer")
+background_sprite = NodePath("Background")
 enemy_sprite_foreground = NodePath("WhispererForeground")
 enemy_sprite_midground = NodePath("WhispererMidground")
 
@@ -23,19 +26,29 @@ texture = ExtResource("2_6akyl")
 
 [node name="WhispererMidground" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(0.776471, 0.776471, 0.776471, 1)
-position = Vector2(165, 20)
+modulate = Color(0.776471, 0.776471, 0.776471, 0.105882)
+position = Vector2(-451, 34)
 rotation = -3.14159
-scale = Vector2(0.127901, 0.327902)
+scale = Vector2(0.127901, 0.207902)
 texture = ExtResource("4_quc62")
 
 [node name="EventTimer" type="Timer" parent="."]
 wait_time = 5.0
 
 [node name="LevelBufferTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="FlashlightTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]
 [connection signal="timeout" from="LevelBufferTimer" to="." method="_on_level_buffer_timer_timeout"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]
+[connection signal="timeout" from="FlashlightTimer" to="." method="_on_flashlight_timer_timeout"]
